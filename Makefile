@@ -9,11 +9,11 @@ all: vectbench_linux_amd64-latest vectbench_darwin_amd64-latest
 vectbench_darwin_amd64-latest: bin/vectbench_darwin_amd64-$(tag)-$(sha1)
 vectbench_linux_amd64-latest: bin/vectbench_linux_amd64-$(tag)-$(sha1)
 
-bin/vectbench_darwin_amd64-$(tag)-$(sha1):  src/vectbench/app.go
+bin/vectbench_darwin_amd64-$(tag)-$(sha1):  *.go pkg/
 	GOOS=darwin GOARCH=amd64 go build -ldflags "-X main.hostname=$(hostname) -X 'main.goV=$(gov)' -X main.tag=$(tag) -X main.sha1ver=$(sha1) -X main.buildTime=$(now)" -o $@  $<
 
 
-bin/vectbench_linux_amd64-$(tag)-$(sha1):  src/vectbench/app.go
+bin/vectbench_linux_amd64-$(tag)-$(sha1):  *.go pkg/
 	GOOS=linux GOARCH=amd64 go build -ldflags "-X main.hostname=$(hostname) -X 'main.goV=$(gov)' -X main.tag=$(tag) -X main.sha1ver=$(sha1) -X main.buildTime=$(now)" -o $@  $<
 
 
