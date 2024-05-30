@@ -1,3 +1,5 @@
+Simple vector query benchmark tool to test single store capabilities.
+
 ## Run Vector Benchmark
 
 Following command will run 100 SQL statements (`-c`) over prepared statement given by `--statement` by using randomly generated 512-dim vector using 
